@@ -15,6 +15,7 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,8 +25,9 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     
     // Create mailto link
     const mailtoLink = `mailto:brian@brianhedden.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
@@ -34,10 +36,21 @@ const Contact = () => {
     
     window.location.href = mailtoLink;
     
+    // Show success message
     toast({
-      title: "Opening email client...",
-      description: "Your default email client should open with the message pre-filled.",
+      title: "Message Sent!",
+      description: "Your email client has opened with your message pre-filled. Thank you for reaching out!",
     });
+
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    });
+
+    setIsLoading(false);
   };
 
   return (
@@ -126,9 +139,10 @@ const Contact = () => {
                 
                 <Button 
                   type="submit" 
+                  disabled={isLoading}
                   className="w-full bg-red-600 hover:bg-red-700 text-white py-3 text-lg font-medium"
                 >
-                  Send Message
+                  {isLoading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>

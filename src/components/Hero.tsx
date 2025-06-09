@@ -46,6 +46,8 @@ const Hero = () => {
       <div className="absolute top-6 right-6 z-20 flex space-x-4">
         <a 
           href="#" 
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-white/80 hover:text-red-400 transition-colors"
           aria-label="Instagram"
         >
@@ -55,6 +57,8 @@ const Hero = () => {
         </a>
         <a 
           href="#" 
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-white/80 hover:text-red-400 transition-colors"
           aria-label="YouTube"
         >
@@ -64,6 +68,8 @@ const Hero = () => {
         </a>
         <a 
           href="mailto:brian@brianhedden.com" 
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-white/80 hover:text-red-400 transition-colors"
           aria-label="Email"
         >
