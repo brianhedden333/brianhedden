@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -22,14 +22,14 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-left text-white px-4 max-w-4xl mx-auto w-full">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
           Brian Hedden
         </h1>
         <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           In service to all beings and future generations.
         </p>
-        <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-80 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+        <p className="text-lg md:text-xl mb-10 max-w-2xl opacity-80 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           Award-winning documentary filmmaker, video editor, and civic tech entrepreneur blending storytelling with social impact.
         </p>
         <Button 
@@ -63,7 +63,7 @@ const Hero = () => {
           </svg>
         </a>
         <a 
-          href="#" 
+          href="mailto:brian@brianhedden.com" 
           className="text-white/80 hover:text-red-400 transition-colors"
           aria-label="Email"
         >
