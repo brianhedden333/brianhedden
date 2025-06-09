@@ -1,0 +1,106 @@
+
+import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ExternalLink } from 'lucide-react';
+
+const FeaturedWork = () => {
+  const projects = [
+    {
+      title: "Fracking the System",
+      description: "A political thriller documentary from the front lines of climate justice activism in Colorado, exposing the harms of fracking, the lengths to which the government is complicit with industrial pollution, and the nefarious tactics the oil and gas industry uses to undermine democratic elections.",
+      image: "/lovable-uploads/b344732c-3ef7-4ac3-9841-e6d491990e95.png",
+      links: {
+        website: "#",
+        instagram: "#",
+        facebook: "#"
+      }
+    },
+    {
+      title: "Stump",
+      description: "A non-partisan tool for empowering voters and community organizations to participate in democracy in a real-time, social, and impactful way. For citizens we are a free, customizable ballot app and civic action dashboard. For organizations, we are a tool for focusing and growing your impact by facilitating collective action and making government officials aware of public opinion.",
+      image: "/lovable-uploads/8f60ea48-fb99-4988-838f-10352caafd03.png",
+      links: {
+        website: "#",
+        instagram: "#",
+        facebook: "#"
+      }
+    },
+    {
+      title: "Earth Dog Films",
+      description: "A video production company dedicated to creating thoughtful media for a better world. We also work with mission-oriented brands and clients of all sizes to reach their targeted media goals.",
+      image: "/lovable-uploads/2ef927dc-286d-4b3e-b815-a09924db46f8.png",
+      links: {
+        youtube: "#",
+        vimeo: "#"
+      }
+    }
+  ];
+
+  return (
+    <section id="featured-work" className="py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Featured Work
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Storytelling that creates impact through documentary filmmaking, civic technology, and mission-driven media production.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-border bg-card">
+              <div className="aspect-video overflow-hidden rounded-t-lg">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-red-600 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {Object.entries(project.links).map(([platform, url]) => (
+                    <Button
+                      key={platform}
+                      variant="outline"
+                      size="sm"
+                      className="text-sm capitalize hover:bg-red-600 hover:text-white hover:border-red-600 transition-colors"
+                      asChild
+                    >
+                      <a href={url} target="_blank" rel="noopener noreferrer">
+                        {platform}
+                        <ExternalLink className="ml-1 h-3 w-3" />
+                      </a>
+                    </Button>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Button 
+            className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-medium"
+            asChild
+          >
+            <a href="/portfolio">
+              View Full Portfolio
+              <ExternalLink className="ml-2 h-5 w-5" />
+            </a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FeaturedWork;
