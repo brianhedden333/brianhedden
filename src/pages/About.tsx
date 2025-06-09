@@ -25,7 +25,7 @@ const About = () => {
             <div className="relative">
               <div className="aspect-square rounded-lg overflow-hidden bg-muted">
                 <img 
-                  src="/lovable-uploads/95aed519-5586-4e9a-bf4a-62bcfd4b5f2c.png" 
+                  src="/lovable-uploads/a71f6c8c-359b-42dc-8158-e6f1e1ae5980.png" 
                   alt="Brian Hedden"
                   className="w-full h-full object-cover"
                 />

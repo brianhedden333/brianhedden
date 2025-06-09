@@ -9,7 +9,7 @@ const FeaturedWork = () => {
     {
       title: "Fracking the System",
       description: "A political thriller documentary from the front lines of climate justice activism in Colorado, exposing the harms of fracking, the lengths to which the government is complicit with industrial pollution, and the nefarious tactics the oil and gas industry uses to undermine democratic elections.",
-      image: "/lovable-uploads/b344732c-3ef7-4ac3-9841-e6d491990e95.png",
+      image: "/lovable-uploads/f3ef629a-c613-4ad4-964b-40cdfd314109.png",
       links: {
         website: "#",
         instagram: "#",
@@ -19,7 +19,7 @@ const FeaturedWork = () => {
     {
       title: "Stump",
       description: "A non-partisan tool for empowering voters and community organizations to participate in democracy in a real-time, social, and impactful way. For citizens we are a free, customizable ballot app and civic action dashboard. For organizations, we are a tool for focusing and growing your impact by facilitating collective action and making government officials aware of public opinion.",
-      image: "/lovable-uploads/8f60ea48-fb99-4988-838f-10352caafd03.png",
+      image: "/lovable-uploads/820b1438-4284-40b9-a3a9-2a3a9be58a52.png",
       links: {
         website: "#",
         instagram: "#",
@@ -29,7 +29,7 @@ const FeaturedWork = () => {
     {
       title: "Earth Dog Films",
       description: "A video production company dedicated to creating thoughtful media for a better world. We also work with mission-oriented brands and clients of all sizes to reach their targeted media goals.",
-      image: "/lovable-uploads/2ef927dc-286d-4b3e-b815-a09924db46f8.png",
+      image: "/lovable-uploads/7c4c67d0-38d3-4669-8583-f2261cce4e21.png",
       links: {
         youtube: "#",
         vimeo: "#"

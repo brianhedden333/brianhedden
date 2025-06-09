@@ -12,7 +12,7 @@ const Portfolio = () => {
       title: "Fracking the System",
       category: "Documentary Film",
       description: "A political thriller documentary from the front lines of climate justice activism in Colorado, exposing the harms of fracking and the oil industry's tactics to undermine democracy.",
-      image: "/lovable-uploads/b344732c-3ef7-4ac3-9841-e6d491990e95.png",
+      image: "/lovable-uploads/f3ef629a-c613-4ad4-964b-40cdfd314109.png",
       year: "2023",
       awards: ["Best Documentary - Colorado Film Festival", "Audience Choice Award - Environmental Film Festival"],
       links: {
@@ -22,10 +22,10 @@ const Portfolio = () => {
       }
     },
     {
-      title: "Stories Are Everywhere",
+      title: "Earth Dog Films",
       category: "Brand Film",
-      description: "A cinematic brand film for Earth Dog Films showcasing the power of storytelling in natural environments.",
-      image: "/lovable-uploads/2ef927dc-286d-4b3e-b815-a09924db46f8.png",
+      description: "A video production company dedicated to creating thoughtful media for a better world, working with mission-oriented brands and clients of all sizes.",
+      image: "/lovable-uploads/7c4c67d0-38d3-4669-8583-f2261cce4e21.png",
       year: "2023",
       links: {
         vimeo: "#",
@@ -33,13 +33,14 @@ const Portfolio = () => {
       }
     },
     {
-      title: "Men's Circles",
-      category: "Community Documentary",
-      description: "An intimate look at modern masculinity and community building through men's circle gatherings.",
-      image: "/lovable-uploads/97782a21-b94b-4cbd-94d2-1f3df6a39ae0.png",
+      title: "Stump",
+      category: "Civic Tech Platform",
+      description: "A non-partisan tool for empowering voters and community organizations to participate in democracy in a real-time, social, and impactful way.",
+      image: "/lovable-uploads/820b1438-4284-40b9-a3a9-2a3a9be58a52.png",
       year: "2024",
       links: {
-        watch: "#"
+        website: "#",
+        platform: "#"
       }
     }
   ];
@@ -116,7 +117,7 @@ const Portfolio = () => {
                         asChild
                       >
                         <a href={url} target="_blank" rel="noopener noreferrer">
-                          {platform === 'watch' ? 'Watch Film' : platform}
+                          {platform === 'platform' ? 'Visit Platform' : platform}
                           <ExternalLink className="ml-1 h-3 w-3" />
                         </a>
                       </Button>
