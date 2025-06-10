@@ -131,7 +131,7 @@ const Contact = () => {
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="border-border bg-card">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Send a Message</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Send Me A Message</h2>
               <form onSubmit={handleSubmit}>
                 <div className="space-y-4">
                   <Input
