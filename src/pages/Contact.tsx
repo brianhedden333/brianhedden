@@ -26,32 +26,48 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    
-    // Create mailto link
-    const mailtoLink = `mailto:brian@brianhedden.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`;
-    
-    window.location.href = mailtoLink;
-    
-    // Show success message
+  e.preventDefault();
+  setIsLoading(true);
+
+  try {
+    const response = await fetch("https://formspree.io/f/xzzgeyzg", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      toast({
+        title: "✅ Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    } else {
+      toast({
+        title: "⚠️ Submission Failed",
+        description: "Please try again later.",
+        variant: "destructive"
+      });
+    }
+  } catch (error) {
     toast({
-      title: "Message Sent!",
-      description: "Your email client has opened with your message pre-filled. Thank you for reaching out!",
+      title: "❌ Error",
+      description: "An error occurred while sending your message.",
+      variant: "destructive"
     });
+  }
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+  setIsLoading(false);
+};
 
-    setIsLoading(false);
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -75,76 +91,46 @@ const Contact = () => {
           <Card className="border-border bg-card">
             <CardContent className="p-8">
               <h2 className="text-2xl font-bold text-foreground mb-6">Send a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Name *
-                    </label>
-                    <Input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email *
-                    </label>
-                    <Input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                    Subject *
-                  </label>
-                  <Input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message *
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={6}
-                    className="w-full"
-                  />
-                </div>
-                
-                <Button 
-                  type="submit" 
-                  disabled={isLoading}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white py-3 text-lg font-medium"
-                >
-                  {isLoading ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
+            <form onSubmit={handleSubmit}>
+  <div className="space-y-4">
+    <Input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      value={formData.name}
+      onChange={handleChange}
+      required
+    />
+    <Input
+      type="email"
+      name="email"
+      placeholder="Your Email"
+      value={formData.email}
+      onChange={handleChange}
+      required
+    />
+    <Input
+      type="text"
+      name="subject"
+      placeholder="Subject"
+      value={formData.subject}
+      onChange={handleChange}
+      required
+    />
+    <Textarea
+      name="message"
+      placeholder="Your Message"
+      value={formData.message}
+      onChange={handleChange}
+      required
+    />
+    <Button type="submit" disabled={isLoading}>
+      {isLoading ? "Sending..." : "Send Message"}
+    </Button>
+  </div>
+</form>
+
+
             </CardContent>
           </Card>
         </div>
