@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -32,6 +31,7 @@ const FeaturedWork = () => {
       description: "A video production company dedicated to creating thoughtful media for a better world. We also work with mission-oriented brands and clients of all sizes to reach their targeted media goals.",
       image: "/lovable-uploads/7c4c67d0-38d3-4669-8583-f2261cce4e21.png",
       links: {
+        website: "https://earthdogfilms.com/",
         youtube: "https://www.youtube.com/@earthdogfilms",
         vimeo: "https://vimeo.com/brianhedden"
       }
